@@ -12,6 +12,16 @@ TIMEPOINTS = {
         "barcodes": "/projectnb/ds596/projects/Team 8/data/additional_dataset/GSM3318004_P0_barcodes.tsv.gz",
         "genes":    "/projectnb/ds596/projects/Team 8/data/additional_dataset/GSM3318004_P0_genes.tsv.gz",
     },
+    5: {
+        "matrix":   "/projectnb/ds596/projects/Team 8/data/additional_dataset/GSM3318005_P5_matrix.mtx.gz",
+        "barcodes": "/projectnb/ds596/projects/Team 8/data/additional_dataset/GSM3318005_P5_barcodes.tsv.gz",
+        "genes":    "/projectnb/ds596/projects/Team 8/data/additional_dataset/GSM3318005_P5_genes.tsv.gz",
+    },
+    7: {
+        "matrix":   "/projectnb/ds596/projects/Team 8/data/additional_dataset/GSM3318006_P7_matrix.mtx.gz",
+        "barcodes": "/projectnb/ds596/projects/Team 8/data/additional_dataset/GSM3318006_P7_barcodes.tsv.gz",
+        "genes":    "/projectnb/ds596/projects/Team 8/data/additional_dataset/GSM3318006_P7_genes.tsv.gz",
+    },
     14: {
         "matrix":   "/projectnb/ds596/projects/Team 8/data/additional_dataset/GSM3318007_P14_matrix.mtx.gz",
         "barcodes": "/projectnb/ds596/projects/Team 8/data/additional_dataset/GSM3318007_P14_barcodes.tsv.gz",
@@ -110,9 +120,14 @@ source_mask = adata.obs["Group"] == earliest_day   # was "day"
 source_idx  = np.where(source_mask)[0]
 
 np.random.seed(42)
-n_test      = max(1, int(len(source_idx) * TEST_FRACTION))
-test_idx    = np.random.choice(source_idx, size=n_test, replace=False)
-train_idx   = np.array([i for i in range(adata.n_obs) if i not in set(test_idx)])
+test_idx = []
+for day in adata.obs["Group"].unique():
+    day_idx = np.where(adata.obs["Group"] == day)[0]
+    n_test = max(1, int(len(day_idx) * TEST_FRACTION))
+    test_idx.extend(np.random.choice(day_idx, size=n_test, replace=False))
+
+test_idx = np.array(test_idx)
+train_idx = np.array([i for i in range(adata.n_obs) if i not in set(test_idx)])
 
 adata_train = adata[train_idx].copy()
 adata_test  = adata[test_idx].copy()
