@@ -57,8 +57,8 @@ def load_10x(matrix_path, barcodes_path, genes_path, day_label):
     # Unique barcodes across timepoints
     adata.obs_names = [f"day{day_label}_{bc}" for bc in adata.obs_names]
 
-    # Timepoint label — key column SquiDiff uses for trajectory direction
-    adata.obs["Group"] = str(day_label)   # required by SquiDiff
+    # Timepoint label
+    adata.obs["Group"] = str(day_label)
     adata.obs["day"]   = str(day_label)
 
     print(f"    → {adata.n_obs} cells, {adata.n_vars} genes")
