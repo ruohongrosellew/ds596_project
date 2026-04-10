@@ -8,24 +8,24 @@ import os
 
 TIMEPOINTS = {
     0: {
-        "matrix":   "/projectnb/ds596/projects/Team 8/data/additional_dataset/GSM3318004_P0_matrix.mtx.gz",
-        "barcodes": "/projectnb/ds596/projects/Team 8/data/additional_dataset/GSM3318004_P0_barcodes.tsv.gz",
-        "genes":    "/projectnb/ds596/projects/Team 8/data/additional_dataset/GSM3318004_P0_genes.tsv.gz",
+        "matrix":   "../data/additional_dataset/GSM3318004_P0_matrix.mtx.gz",
+        "barcodes": "../data/additional_dataset/GSM3318004_P0_barcodes.tsv.gz",
+        "genes":    "../data/additional_dataset/GSM3318004_P0_genes.tsv.gz",
     },
     5: {
-        "matrix":   "/projectnb/ds596/projects/Team 8/data/additional_dataset/GSM3318005_P5_matrix.mtx.gz",
-        "barcodes": "/projectnb/ds596/projects/Team 8/data/additional_dataset/GSM3318005_P5_barcodes.tsv.gz",
-        "genes":    "/projectnb/ds596/projects/Team 8/data/additional_dataset/GSM3318005_P5_genes.tsv.gz",
+        "matrix":   "../data/additional_dataset/GSM3318005_P5_matrix.mtx.gz",
+        "barcodes": "../data/additional_dataset/GSM3318005_P5_barcodes.tsv.gz",
+        "genes":    "../data/additional_dataset/GSM3318005_P5_genes.tsv.gz",
     },
     7: {
-        "matrix":   "/projectnb/ds596/projects/Team 8/data/additional_dataset/GSM3318006_P7_matrix.mtx.gz",
-        "barcodes": "/projectnb/ds596/projects/Team 8/data/additional_dataset/GSM3318006_P7_barcodes.tsv.gz",
-        "genes":    "/projectnb/ds596/projects/Team 8/data/additional_dataset/GSM3318006_P7_genes.tsv.gz",
+        "matrix":   "../data/additional_dataset/GSM3318006_P7_matrix.mtx.gz",
+        "barcodes": "../data/additional_dataset/GSM3318006_P7_barcodes.tsv.gz",
+        "genes":    "../data/additional_dataset/GSM3318006_P7_genes.tsv.gz",
     },
     14: {
-        "matrix":   "/projectnb/ds596/projects/Team 8/data/additional_dataset/GSM3318007_P14_matrix.mtx.gz",
-        "barcodes": "/projectnb/ds596/projects/Team 8/data/additional_dataset/GSM3318007_P14_barcodes.tsv.gz",
-        "genes":    "/projectnb/ds596/projects/Team 8/data/additional_dataset/GSM3318007_P14_genes.tsv.gz",
+        "matrix":   "../data/additional_dataset/GSM3318007_P14_matrix.mtx.gz",
+        "barcodes": "../data/additional_dataset/GSM3318007_P14_barcodes.tsv.gz",
+        "genes":    "../data/additional_dataset/GSM3318007_P14_genes.tsv.gz",
     }
 }
 
