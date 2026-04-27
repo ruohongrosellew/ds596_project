@@ -63,6 +63,7 @@ def run_training(args):
     logger.log("creating data loader...")
     data = prepared_data(
         data_dir = args['data_path'],
+        control_data_dir = args['control_data_path'],
         batch_size = args['batch_size'],
         use_drug_structure= args['use_drug_structure'],
         comb_num = args['comb_num']
@@ -87,7 +88,7 @@ def run_training(args):
         weight_decay=args['weight_decay'],
         lr_anneal_steps=args['lr_anneal_steps'],
         use_drug_structure= args['use_drug_structure'],
-        comb_num=args['comb_num']
+        comb_num=args['comb_num'],
     )
     train_.run_loop()
     
@@ -107,11 +108,12 @@ def parse_args():
     default_args.update(model_and_diffusion_defaults())
     updated_args = {
         'data_path': '',
+        'control_data_path': '',
         'schedule_sampler': 'uniform',
         'lr': 1e-4,
         'weight_decay': 0.0,
         'lr_anneal_steps': 1e5,
-        'batch_size': 128,
+        'batch_size': 64,
         'microbatch': -1,
         'ema_rate': '0.9999',
         'log_interval': 1e4,
@@ -127,7 +129,9 @@ def parse_args():
         'diffusion_steps': 1000,
         'logger_path': '',
         'use_drug_structure':False,
-        'comb_num':1
+        'comb_num':1,
+        'use_ddim':True,
+        'activation':'silu',
     }
     default_args.update(updated_args)
     # Initialize argument parser
